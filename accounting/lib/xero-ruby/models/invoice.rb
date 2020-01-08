@@ -25,9 +25,11 @@ module XeroRuby
 
     # Date invoice was issued – YYYY-MM-DD. If the Date element is not specified it will default to the current date based on the timezone setting of the organisation
     attr_accessor :date
+    attr_accessor :date_string
 
     # Date invoice is due – YYYY-MM-DD
     attr_accessor :due_date
+    attr_accessor :due_date_string
 
     attr_accessor :line_amount_types
 
@@ -101,12 +103,14 @@ module XeroRuby
 
     # The date the invoice was fully paid. Only returned on fully paid invoices
     attr_accessor :fully_paid_on_date
+    attr_accessor :fully_paid_on_date_string
 
     # Sum of all credit notes, over-payments and pre-payments applied to invoice
     attr_accessor :amount_credited
 
     # Last modified date UTC format
     attr_accessor :updated_date_utc
+    attr_accessor :updated_date_utc_string
 
     # Details of credit notes that have been applied to an invoice
     attr_accessor :credit_notes
@@ -152,7 +156,9 @@ module XeroRuby
         :'contact' => :'Contact',
         :'line_items' => :'LineItems',
         :'date' => :'Date',
+        :'date_string' => :'DateString',
         :'due_date' => :'DueDate',
+        :'due_date_string' => :'DueDateString',
         :'line_amount_types' => :'LineAmountTypes',
         :'invoice_number' => :'InvoiceNumber',
         :'reference' => :'Reference',
@@ -195,7 +201,9 @@ module XeroRuby
         :'contact' => :'Contact',
         :'line_items' => :'Array<LineItem>',
         :'date' => :'Date',
+        :'date_string' => :'String',
         :'due_date' => :'Date',
+        :'due_date_string' => :'String',
         :'line_amount_types' => :'LineAmountTypes',
         :'invoice_number' => :'String',
         :'reference' => :'String',
@@ -266,6 +274,14 @@ module XeroRuby
 
       if attributes.key?(:'due_date')
         self.due_date = attributes[:'due_date']
+      end
+
+      if attributes.key?(:'date_string')
+        self.date_string = attributes[:'date_string']
+      end
+
+      if attributes.key?(:'due_date_string')
+        self.due_date_string = attributes[:'due_date_string']
       end
 
       if attributes.key?(:'line_amount_types')
