@@ -22,6 +22,7 @@ module XeroRuby
 
     # The date the credit note is issued YYYY-MM-DD. If the Date element is not specified then it will default to the current date based on the timezone setting of the organisation
     attr_accessor :date
+    attr_accessor :date_string
 
     # See Credit Note Status Codes
     attr_accessor :status
@@ -42,11 +43,13 @@ module XeroRuby
 
     # UTC timestamp of last update to the credit note
     attr_accessor :updated_date_utc
+    attr_accessor :updated_date_utc_string
 
     attr_accessor :currency_code
 
     # Date when credit note was fully paid(UTC format)
     attr_accessor :fully_paid_on_date
+    attr_accessor :fully_paid_on_date_string
 
     # Xero generated unique identifier
     attr_accessor :credit_note_id
@@ -109,6 +112,7 @@ module XeroRuby
         :'type' => :'Type',
         :'contact' => :'Contact',
         :'date' => :'Date',
+        :'date_string' => :'DateString',
         :'status' => :'Status',
         :'line_amount_types' => :'LineAmountTypes',
         :'line_items' => :'LineItems',
@@ -116,8 +120,10 @@ module XeroRuby
         :'total_tax' => :'TotalTax',
         :'total' => :'Total',
         :'updated_date_utc' => :'UpdatedDateUTC',
+        :'updated_date_utc_string' => :'UpdatedDateUTCString',
         :'currency_code' => :'CurrencyCode',
         :'fully_paid_on_date' => :'FullyPaidOnDate',
+        :'fully_paid_on_date_string' => :'FullyPaidOnDateString',
         :'credit_note_id' => :'CreditNoteID',
         :'credit_note_number' => :'CreditNoteNumber',
         :'reference' => :'Reference',
@@ -138,6 +144,7 @@ module XeroRuby
         :'type' => :'String',
         :'contact' => :'Contact',
         :'date' => :'Date',
+        :'date_string' => :'String',
         :'status' => :'String',
         :'line_amount_types' => :'LineAmountTypes',
         :'line_items' => :'Array<LineItem>',
@@ -145,8 +152,10 @@ module XeroRuby
         :'total_tax' => :'Float',
         :'total' => :'Float',
         :'updated_date_utc' => :'DateTime',
+        :'updated_date_utc_string' => :'String',
         :'currency_code' => :'CurrencyCode',
         :'fully_paid_on_date' => :'Date',
+        :'fully_paid_on_date_string' => :'String',
         :'credit_note_id' => :'String',
         :'credit_note_number' => :'String',
         :'reference' => :'String',
@@ -187,6 +196,9 @@ module XeroRuby
       if attributes.key?(:'date')
         self.date = attributes[:'date']
       end
+      if attributes.key?(:'date_string')
+        self.date_string = attributes[:'date_string']
+      end
 
       if attributes.key?(:'status')
         self.status = attributes[:'status']
@@ -217,6 +229,9 @@ module XeroRuby
       if attributes.key?(:'updated_date_utc')
         self.updated_date_utc = attributes[:'updated_date_utc']
       end
+      if attributes.key?(:'updated_date_utc_string')
+        self.updated_date_utc_string = attributes[:'updated_date_utc_string']
+      end
 
       if attributes.key?(:'currency_code')
         self.currency_code = attributes[:'currency_code']
@@ -224,6 +239,9 @@ module XeroRuby
 
       if attributes.key?(:'fully_paid_on_date')
         self.fully_paid_on_date = attributes[:'fully_paid_on_date']
+      end
+      if attributes.key?(:'fully_paid_on_date_string')
+        self.fully_paid_on_date_string = attributes[:'fully_paid_on_date_string']
       end
 
       if attributes.key?(:'credit_note_id')
