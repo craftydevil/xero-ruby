@@ -456,7 +456,7 @@ module XeroRuby
     # @return true if the model is valid
     def valid?
       return false if @type.nil?
-      type_validator = EnumAttributeValidator.new('String', ["ACCREC", "ACCPAY", "ACCPAYCREDIT", "AROVERPAYMENT"])
+      type_validator = EnumAttributeValidator.new('String', ["ACCPAY", "ACCPAYCREDIT", "APOVERPAYMENT", "APPREPAYMENT", "ACCREC", "ACCRECCREDIT", "AROVERPAYMENT", "ARPREPAYMENT"])
       return false unless type_validator.valid?(@type)
       return false if @contact.nil?
       return false if @line_items.nil?
@@ -470,7 +470,7 @@ module XeroRuby
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
     def type=(type)
-      validator = EnumAttributeValidator.new('String', ["ACCREC", "ACCPAY", "ACCPAYCREDIT", "AROVERPAYMENT"])
+      validator = EnumAttributeValidator.new('String', ["ACCPAY", "ACCPAYCREDIT", "APOVERPAYMENT", "APPREPAYMENT", "ACCREC", "ACCRECCREDIT", "AROVERPAYMENT", "ARPREPAYMENT"])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end
