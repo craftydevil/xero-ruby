@@ -262,7 +262,7 @@ module XeroRuby
       return false unless bank_account_type_validator.valid?(@bank_account_type)
       _class_validator = EnumAttributeValidator.new('String', ["ASSET", "EQUITY", "EXPENSE", "LIABILITY", "REVENUE"])
       return false unless _class_validator.valid?(@_class)
-      system_account_validator = EnumAttributeValidator.new('String', ["DEBTORS", "CREDITORS", "BANKCURRENCYGAIN", "GST", "GSTONIMPORTS", "HISTORICAL", "REALISEDCURRENCYGAIN", "RETAINEDEARNINGS", "ROUNDING", "TRACKINGTRANSFERS", "UNPAIDEXPCLM", "UNREALISEDCURRENCYGAIN", "WAGEPAYABLES", ""])
+      system_account_validator = EnumAttributeValidator.new('String', ["DEBTORS", "CREDITORS", "BANKCURRENCYGAIN", "GST", "GSTONIMPORTS", "HISTORICAL", "REALISEDCURRENCYGAIN", "RETAINEDEARNINGS", "ROUNDING", "TRACKINGTRANSFERS", "UNPAIDEXPCLM", "UNREALISEDCURRENCYGAIN", "WAGEPAYABLES", "CISLABOURINCOME", "CISLABOUR", "CISMATERIALS", "CISASSET", "CISLIABILITY", ""])
       return false unless system_account_validator.valid?(@system_account)
       true
     end
@@ -320,7 +320,7 @@ module XeroRuby
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] system_account Object to be assigned
     def system_account=(system_account)
-      validator = EnumAttributeValidator.new('String', ["DEBTORS", "CREDITORS", "BANKCURRENCYGAIN", "GST", "GSTONIMPORTS", "HISTORICAL", "REALISEDCURRENCYGAIN", "RETAINEDEARNINGS", "ROUNDING", "TRACKINGTRANSFERS", "UNPAIDEXPCLM", "UNREALISEDCURRENCYGAIN", "WAGEPAYABLES", ""])
+      validator = EnumAttributeValidator.new('String', ["DEBTORS", "CREDITORS", "BANKCURRENCYGAIN", "GST", "GSTONIMPORTS", "HISTORICAL", "REALISEDCURRENCYGAIN", "RETAINEDEARNINGS", "ROUNDING", "TRACKINGTRANSFERS", "UNPAIDEXPCLM", "UNREALISEDCURRENCYGAIN", "WAGEPAYABLES", "CISLABOURINCOME", "CISLABOUR", "CISMATERIALS", "CISASSET", "CISLIABILITY", ""])
       unless validator.valid?(system_account)
         fail ArgumentError, "invalid value for \"system_account\", must be one of #{validator.allowable_values}."
       end
